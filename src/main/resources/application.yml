@@ -14,7 +14,7 @@ spring:
       routes:
         - id: user-tenant
           uri: lb://user-tenant  # 服务端 service_id
-          # 网关断言匹配
+          # 网关断言匹配/
           predicates:
             - Path=/**    # 路由映射路径 这里注意，这个路径会追加到 service_id后
 #          filters:
@@ -24,6 +24,12 @@ spring:
           # 网关断言匹配
           predicates:
             - Path=/**
+        - id: oauth
+          uri: lb://oauth  # 服务端 service_id
+          # 网关断言匹配
+          predicates:
+          - Path=/**
+
 
 ribbon:
   eureka:
